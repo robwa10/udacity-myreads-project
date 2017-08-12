@@ -42,10 +42,12 @@ class App extends Component {
         <BookShelf
           title="Want To Read"
           books={this.filterBookShelf("wantToRead")}
+          moveBook={this.moveBook}
         />
         <BookShelf
           title="Read"
           books={this.filterBookShelf("read")}
+          moveBook={this.moveBook}
         />
         <SearchButton/>
       </div>

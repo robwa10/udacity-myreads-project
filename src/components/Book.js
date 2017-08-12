@@ -9,9 +9,16 @@ class Book extends Component {
     <div className="book" id={this.props.book.id}>
       <div className="book-top">
         <div className="book-cover"
-          style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")` }}
-        ></div>
-        <MoveBookButton moveBook={this.props.moveBook} />
+          style={{
+            width: 128,
+            height: 193,
+            backgroundImage: `url("${this.props.book.imageLinks.thumbnail}")`
+          }}></div>
+        <MoveBookButton
+          moveBook={this.props.moveBook}
+          shelf={this.props.shelf}
+          book={this.props.book}
+        />
       </div>
       <div>
         <div className="book-title">{this.props.book.title}</div>
