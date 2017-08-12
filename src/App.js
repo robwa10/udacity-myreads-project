@@ -24,10 +24,14 @@ class App extends Component {
     return this.state.books.filter((book) => book.shelf === name);
   }
 
-  moveBook(book, changeTo) {
+  moveBook = (book, changeTo) => {
     BooksAPI.update(book, changeTo).then(() => {
-      book.shelf = changeTo;
-    });
+            book.shelf = changeTo;
+            this.setState(state => ({
+                books: state.books.filter(b => b.title !== book.title).concat([ book ])
+            }));
+        });
+
   }
 
   render() {
