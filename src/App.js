@@ -7,19 +7,26 @@ import * as BooksAPI from './BooksAPI';
 
 
 class App extends Component {
-  state = {
-    title: "To Kill A Mockingbird",
-    author: "Harper Lee",
-    url: "http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api",
-    currentlyReading: [],
-    wantToRead: [],
-    read: [],
-    books: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+    }
   }
 
-  componentDidMount(){
+  componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({ books });
+    });
+  }
+
+  filterBookShelf(name) {
+    return this.state.books.filter((book) => book.shelf === name);
+  }
+
+  moveBook(book, changeTo) {
+    BooksAPI.update(book, changeTo).then(() => {
+      book.shelf = changeTo;
     });
   }
 
@@ -29,9 +36,17 @@ class App extends Component {
         <Header/>
         <BookShelf
           title="Currently Reading"
-          books={this.state.books}
+          books={this.filterBookShelf("currentlyReading")}
+          moveBook={this.moveBook}
         />
-
+        <BookShelf
+          title="Want To Read"
+          books={this.filterBookShelf("wantToRead")}
+        />
+        <BookShelf
+          title="Read"
+          books={this.filterBookShelf("read")}
+        />
         <SearchButton/>
       </div>
     )
