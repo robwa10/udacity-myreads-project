@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import SearchBooks from './SearchBooks'
 import BookShelf from './components/BookShelf';
 import Header from './components/Header';
 import SearchButton from './components/SearchButton';
@@ -37,23 +39,33 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header/>
-        <BookShelf
-          title="Currently Reading"
-          books={this.filterBookShelf("currentlyReading")}
-          moveBook={this.moveBook}
-        />
-        <BookShelf
-          title="Want To Read"
-          books={this.filterBookShelf("wantToRead")}
-          moveBook={this.moveBook}
-        />
-        <BookShelf
-          title="Read"
-          books={this.filterBookShelf("read")}
-          moveBook={this.moveBook}
-        />
-        <SearchButton/>
+
+        <Route exact path='/' render={() => (
+          <div>
+            <Header/>
+            <BookShelf
+              title="Currently Reading"
+              books={this.filterBookShelf("currentlyReading")}
+              moveBook={this.moveBook}
+            />
+            <BookShelf
+              title="Want To Read"
+              books={this.filterBookShelf("wantToRead")}
+              moveBook={this.moveBook}
+            />
+            <BookShelf
+              title="Read"
+              books={this.filterBookShelf("read")}
+              moveBook={this.moveBook}
+            />
+            <SearchButton/>
+          </div>
+        )}/>
+
+        <Route exact path='/search' render={() => (
+          <SearchBooks/>
+        )}/>
+
       </div>
     )
   }
