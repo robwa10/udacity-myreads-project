@@ -9,12 +9,10 @@ import * as BooksAPI from './BooksAPI';
 
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       books: [],
+      searchResults: [],
     }
-  }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -39,7 +37,6 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-
         <Route exact path='/' render={() => (
           <div>
             <Header/>
@@ -63,7 +60,10 @@ class App extends Component {
         )}/>
 
         <Route exact path='/search' render={() => (
-          <SearchBooks/>
+          <SearchBooks
+            moveBook={this.moveBook}
+            books={this.state.books}
+          />
         )}/>
 
       </div>
