@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import sortBy from 'sort-by';
 import SearchBooks from './SearchBooks'
 import BookShelf from './components/BookShelf';
 import Header from './components/Header';
@@ -12,6 +13,8 @@ class App extends Component {
     state = {
       books: [],
       searchResults: [],
+      query: '',
+      searchBooks: [],
     }
 
   componentDidMount() {
@@ -32,6 +35,16 @@ class App extends Component {
             }));
         });
 
+  }
+
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
+    if (this.state.query) {
+      BooksAPI.search(this.state.query, 20).then((books) => {
+        this.setState({ searchBooks: books});
+        this.state.searchBooks.sort(sortBy(this.state.searchBooks.title));
+      })
+    }
   }
 
   render() {
@@ -62,7 +75,9 @@ class App extends Component {
         <Route exact path='/search' render={() => (
           <SearchBooks
             moveBook={this.moveBook}
-            books={this.state.books}
+            searchBooks={this.state.searchBooks}
+            query={this.state.query}
+            updateQuery={this.updateQuery}
           />
         )}/>
 
