@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Debounce } from 'react-throttle';
 import Book from './components/Book';
 import './App.css';
 
@@ -20,11 +21,12 @@ class SearchBooks extends Component {
             className="close-search"
             to="/">Close</Link>
           <div className="search-books-input-wrapper">
-            <input type="text"
-              placeholder="Search by title or author"
-              value={this.props.query}
-              onChange={(event) => this.props.updateQuery(event.target.value)}/>
-
+            <Debounce time="600" handler="onChange">
+              <input type="text"
+                placeholder="Search by title or author"
+                value={this.props.query}
+                onChange={(event) => this.props.updateQuery(event.target.value)}/>
+            </Debounce>
           </div>
         </div>
         <div className="search-books-results">
