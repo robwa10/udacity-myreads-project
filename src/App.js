@@ -10,12 +10,12 @@ import * as BooksAPI from './BooksAPI';
 
 
 class App extends Component {
-    state = {
-      books: [],
-      searchResults: [],
-      query: '',
-      searchBooks: [],
-    }
+  state = {
+    books: [],
+    searchResults: [],
+    query: '',
+    searchBooks: [],
+  }
 
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -78,6 +78,7 @@ class App extends Component {
             searchBooks={this.state.searchBooks}
             query={this.state.query}
             updateQuery={this.updateQuery}
+            debounce={this.debounce}
           />
         )}/>
 
