@@ -20,7 +20,7 @@ Run the app in development mode using:
 ## App Features
 
 ### Homepage
-Features 3 bookshelves to with the following headings:
+Features 3 bookshelves with the following headings:
 * Currently Reading
 * Want To Read
 * Read
