@@ -7,7 +7,7 @@ This is a project based on the starter template provided for Udacity's React Fun
 ### Installation
 
 Clone the repository using:
-`git clone `
+`git clone https://github.com/robwa10/udacity-myreads-project.git`
 
 Install npm dependencies using:
 `npm install`
