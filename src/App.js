@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import sortBy from 'sort-by';
-import SearchBooks from './SearchBooks'
+import SearchBooks from './SearchBooks';
 import BookShelf from './components/BookShelf';
 import Header from './components/Header';
 import SearchButton from './components/SearchButton';
@@ -43,7 +43,7 @@ class App extends Component {
       BooksAPI.search(this.state.query, 20).then((books) => {
         this.setState({ searchBooks: books});
         this.state.searchBooks.sort(sortBy(this.state.searchBooks.title));
-      })
+      });
     }
   }
 
@@ -84,7 +84,7 @@ class App extends Component {
 
       </div>
     )
-  }
+  };
 }
 
-export default App
+export default App;

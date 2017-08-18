@@ -9,7 +9,7 @@ function SearchButton (props) {
       <Link
         to="/search">Search Books</Link>
     </div>
-  )
+  );
 }
 
-export default SearchButton
+export default SearchButton;

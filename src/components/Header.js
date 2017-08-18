@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'
+import '../App.css';
 
 function Header (props) {
   return (
@@ -9,4 +9,4 @@ function Header (props) {
   );
 }
 
-export default Header
+export default Header;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css'
+import '../App.css';
 
 
 class MoveBookButton extends Component {
@@ -19,7 +19,7 @@ class MoveBookButton extends Component {
       </select>
     </div>
     );
-  }
+  };
 }
 
-export default MoveBookButton
+export default MoveBookButton;
