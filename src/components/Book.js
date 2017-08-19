@@ -8,11 +8,8 @@ function Book (props) {
   <div className="book" id={props.book.id}>
     <div className="book-top">
       <div className="book-cover"
-        style={{
-          width: 128,
-          height: 193,
-          backgroundImage: `url("${props.book.imageLinks.thumbnail}")`
-        }}></div>
+        style={{backgroundImage: `url("${props.book.imageLinks.thumbnail}")`}}>
+        </div>
       <MoveBookButton
         moveBook={props.moveBook}
         shelf={props.shelf}
