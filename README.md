@@ -2,6 +2,9 @@
 
 This is a project based on the starter template provided for Udacity's React Fundamentals course. It was completed to reinforce React fundamentals of state management, component construction, JSX, page routing and linking.
 
+Copyright 2016 Robert Hubbard
+Licensed under the MIT License
+
 
 ## Getting Started
 ### Installation
