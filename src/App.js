@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import sortBy from 'sort-by';
+import CurrentBooks from './CurrentBooks';
 import SearchBooks from './SearchBooks';
-import BookShelf from './components/BookShelf';
 import Header from './components/Header';
-import SearchButton from './components/SearchButton';
 import './App.css';
 import * as BooksAPI from './BooksAPI';
 
@@ -23,7 +22,7 @@ class App extends Component {
     });
   }
 
-  filterBookShelf(name) {
+  filterBookShelf = (name) => {
     return this.state.books.filter((book) => book.shelf === name);
   }
 
@@ -53,22 +52,10 @@ class App extends Component {
         <Route exact path='/' render={() => (
           <div>
             <Header/>
-            <BookShelf
-              title="Currently Reading"
-              books={this.filterBookShelf("currentlyReading")}
+            <CurrentBooks
+              filterBookShelf={this.filterBookShelf}
               moveBook={this.moveBook}
             />
-            <BookShelf
-              title="Want To Read"
-              books={this.filterBookShelf("wantToRead")}
-              moveBook={this.moveBook}
-            />
-            <BookShelf
-              title="Read"
-              books={this.filterBookShelf("read")}
-              moveBook={this.moveBook}
-            />
-            <SearchButton/>
           </div>
         )}/>
 
