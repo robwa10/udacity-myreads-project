@@ -1,0 +1,56 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add gh-pages
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.6/bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  0.27.5
+
+Node version: 
+  8.9.3
+
+Platform: 
+  darwin x64
+
+npm manifest: 
+  {
+    "dependencies": {
+      "escape-string-regexp": "^1.0.5",
+      "prop-types": "^15.5.8",
+      "react": "^15.5.4",
+      "react-dom": "^15.5.4",
+      "react-router-dom": "^4.1.2",
+      "react-throttle": "^0.3.0",
+      "sort-by": "^1.2.0",
+      "homepage": "https://robwa10.github.io/udacity-myreads-project/"
+    },
+    "devDependencies": {
+      "react-scripts": "0.9.5"
+    },
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "test": "react-scripts test --env=jsdom",
+      "eject": "react-scripts eject"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: https://robwa10.github.io/udacity-myreads-project/: Invalid tar header. Maybe the tar is corrupted or it needs to be gunzipped?
+      at Object.exports.decode (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:67808:43)
+      at Extract.onheader [as _onparse] (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:125622:39)
+      at Extract._write (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:125745:8)
+      at doWrite (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:64471:64)
+      at writeOrBuffer (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:64460:5)
+      at Extract.Writable.write (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:64397:11)
+      at Duplexify.ondata (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:63545:20)
+      at emitOne (events.js:116:13)
+      at Duplexify.emit (events.js:211:7)
+      at readableAddChunk (/usr/local/Cellar/yarn/0.27.5/libexec/lib/yarn-cli.js:63216:18)
