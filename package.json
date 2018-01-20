@@ -7,12 +7,12 @@
     "react-router-dom": "^4.1.2",
     "react-throttle": "^0.3.0",
     "sort-by": "^1.2.0",
-    "homepage": "https://robwa10.github.io/udacity-myreads-project/"
   },
   "devDependencies": {
     "react-scripts": "0.9.5"
   },
   "scripts": {
+    "homepage": "https://robwa10.github.io/udacity-myreads-project/",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
